@@ -1,0 +1,24 @@
+start-dfs
+start-yarn
+hdfs dfs -put D:\Matrix_A.txt /input
+ hdfs dfs -put D:\Matrix_B.txt /input
+
+hadoop jar D:\Matrix_Multiplication\MatrixMultiplication.jar com.mapreduce.wc/MatrixMultiply /input/* /output
+
+
+hdfs dfs -rm /input/*  
+
+hdfs dfs -rm /output/*  
+
+
+ hdfs dfs -rmdir /output 
+ hdfs dfs -cat /output/part-r-00000 
+
+
+for MatrixMultiplication:- hadoop jar D:\hadoop\MatrixMultiplication.jar com.mapreduce.wc/MatrixMultiply /input/* /output
+
+
+for Output:-  hadoop dfs -cat /output/*
+
+
+for wordcount:- hadoop jar C:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /i /output
